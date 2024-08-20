@@ -14,7 +14,7 @@ const getweather = async (id) => {
 };
 
 // To Get city Information
-const city = async (city) => {
+const getcity = async (city) => {
   const base = "http://dataservice.accuweather.com/locations/v1/cities/search";
 
   const query = `?apikey=${key}&q=${city}`;
@@ -25,13 +25,13 @@ const city = async (city) => {
   return data[0];
 };
 
-city("Islamabad")
-  .then((data) => {
-    return getweather(data.Key);
-  })
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => console.log(err));
+// city("Islamabad")
+//   .then((data) => {
+//     return getweather(data.Key);
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => console.log(err));
 
 // getweather("258278");
