@@ -3,9 +3,15 @@ const cityForm = document.querySelector("form");
 const card = document.querySelector(".card");
 const details = document.querySelector(".details");
 
+const time = document.querySelector("img.time");
+const icon = document.querySelector(".icon img");
+
 const updateUI = (data) => {
   const citydetails = data.citydetails;
   const weather = data.weather;
+
+  // By Destructure Properties
+  // const { citydetails, weather } = data;
 
   // Update details template
 
@@ -18,6 +24,24 @@ const updateUI = (data) => {
           </div>
   
   `;
+
+  // Update the day/night & icon images
+
+  const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+  console.log(data);
+  icon.setAttribute("src", iconSrc);
+
+  // By ternary operator method
+
+  let timeSrc = weather.IsDayTime ? "img/icons/day.svg" : "img/icons/night.svg";
+
+  // let timeSrc = null;
+  // if (weather.IsDayTime) {
+  //   timeSrc = "icons/day.svg";
+  // } else {
+  //   timeSrc = "icons/night.svg";
+  // }
+  time.setAttribute("src", timeSrc);
 
   // Remove the d-none class if present
 
