@@ -1,3 +1,5 @@
+import { getcity, getweather } from "./Forecast.js";
+
 const cityForm = document.querySelector("form");
 
 const card = document.querySelector(".card");
@@ -70,4 +72,13 @@ cityForm.addEventListener("submit", (e) => {
   updatecity(city)
     .then((data) => updateUI(data))
     .catch((err) => console.log(err));
+
+  // Set Local Storage
+  localStorage.setItem("city", city);
 });
+
+if (localStorage.getItem("city")) {
+  updatecity(localStorage.getItem("city"))
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+}
